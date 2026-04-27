@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Modeling & Rotoscoping Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-main: #09090b;
+        --bg-card: #18181b;
+        --bg-hover: #27272a;
+        --accent: #38bdf8;
+        --accent-glow: rgba(56, 189, 248, 0.4);
+        --text-bright: #fafafa;
+        --text-muted: #a1a1aa;
+        --border-color: #27272a;
+        --yt-red: #ef4444;
+    }
+
+    /* RESET & CORE PROPORTIONS */
+    * { 
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0;
+    }
+    
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-bright);
+        line-height: 1.6;
+    }
+
+    /* GLASS NAV */
+    header {
+        position: fixed;
+        top: 0; width: 100%;
+        height: 70px;
+        background: rgba(9, 9, 11, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5%;
+        z-index: 1000;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    header .logo { 
+        font-weight: 800; 
+        color: var(--text-bright); 
+        font-size: 1.2rem; 
+        letter-spacing: 1px;
+    }
+    header .logo span { color: var(--accent); }
+
+    header nav a {
+        color: var(--text-muted);
+        text-decoration: none;
+        margin-left: 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: 0.3s ease;
+    }
+    header nav a:hover { color: var(--accent); }
+
+    /* HERO SECTION */
+    #home {
+        padding: 160px 5% 80px 5%;
+        max-width: 1400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    h1 { 
+        font-size: clamp(2.5rem, 5vw, 4rem); 
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 20px; 
+        background: linear-gradient(to right, #fff, #9ca3af);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-p { 
+        font-size: 1.15rem; 
+        color: var(--text-muted); 
+        max-width: 700px; 
+        margin: 0 auto; 
+    }
+
+    /* PROJECT DASHBOARD PROPORTIONS */
+    .dashboard {
+        display: grid;
+        grid-template-columns: 1fr 380px; /* Wider sidebar for better text fitting */
+        gap: 30px;
+        max-width: 1400px;
+        margin: 0 auto 120px auto;
+        padding: 0 5%;
+        align-items: start; /* Prevents sidebar from stretching weirdly */
+    }
+
+    /* LEFT SIDE: MAIN PROJECT VIEW */
+    .project-view {
+        background: var(--bg-card);
+        border-radius: 16px;
+        padding: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    .video-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #000;
+        box-shadow: 0 0 20px rgba(0,0,0,0.8) inset;
+    }
+    
+    iframe { width: 100%; height: 100%; border: none; }
+    
+    .project-info { margin-top: 25px; padding: 0 10px; }
+    .project-info h2 { font-size: 1.8rem; margin-bottom: 10px; font-weight: 800; }
+    .project-info p { color: var(--text-muted); font-size: 1rem; }
+
+    /* RIGHT SIDE: INTERACTIVE SIDEBAR */
+    .sidebar {
+        height: calc(100vh - 140px); /* Responsive height based on screen */
+        max-height: 800px;
+        background: var(--bg-card);
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: 90px; /* Sticks nicely when scrolling */
+    }
+    
+    .sidebar-header {
+        padding: 20px;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--accent);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .scroll-list {
+        overflow-y: auto;
+        padding: 15px;
+        flex-grow: 1;
+    }
+
+    /* MODERN MINI CARDS */
+    .mini-card {
+        background: var(--bg-main);
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 12px;
+        border: 1px solid var(--border-color);
+        transition: all 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .mini-card:hover { 
+        border-color: var(--accent); 
+        background: var(--bg-hover); 
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .mini-card h4 { margin-bottom: 6px; font-size: 1rem; font-weight: 600; color: var(--text-bright); }
+    .mini-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+    
+    /* YOUTUBE BUTTON STYLING */
+    .btn-yt {
+        background: rgba(239, 68, 68, 0.1);
+        color: var(--yt-red);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        padding: 8px 16px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        border-radius: 6px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .btn-yt:hover {
+        background: var(--yt-red);
+        color: #fff;
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+    }
+
+    /* FOOTER */
+    footer { 
+        text-align: center; 
+        padding: 40px; 
+        color: var(--text-muted); 
+        border-top: 1px solid var(--border-color); 
+        font-size: 0.9rem;
+    }
+
+    /* CUSTOM SCROLLBAR FOR SLEEK LOOK */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+        .dashboard { grid-template-columns: 1fr; }
+        .sidebar { height: 500px; position: static; }
+    }
+</style>
+</head>
+<body>
+
+<<header>
+    <div class="logo">RALPH SNIDER ORDONEZ <span>| BSIT-NS-2A</span></div>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#solar">3D_SOLAR</a>
+        <a href="#roto">VFX_ROTO</a>
+    </nav>
+</header>
+
+<section id="home">
+    <h1>Multimedia & Authoring</h1>
+    <p class="hero-p">
+        Exploring the art of rotoscoping and the realism of 3D rendering to create compelling visual narratives. 
+        Merging creativity with technology to bring motion and dimension to digital storytelling.
+    </p>
+</section>
+
+<div class="dashboard" id="solar">
+    <div class="project-view">
+        <div class="video-container">
+            <iframe id="solar-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-info">
+            <h2 id="solar-title">3D Solar System Project (Full Overview)</h2>
+            <p>A procedural 3D model of the solar system built in Blender. This project focuses on realistic planetary motion and surface textures to simulate space environments. Select a planet from the directory to view its specific render.</p>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-header"><span>Planet Directory</span> <span>🌌</span></div>
+        <div class="scroll-list">
+            <div class="mini-card">
+                <h4>Mercury</h4><p>Closest planet to the sun. Heavy cratering.</p>
+                <button class="btn-yt" onclick="loadVideo('solar-player', 'jnLYUUF5-hk', 'solar-title', 'Mercury Render')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Venus</h4><p>Dense atmosphere and high heat rendering.</p>
+                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Venus Render')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Earth</h4><p>Multi-layered textures for clouds and water.</p>
+                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Earth Render')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Mars</h4><p>Focusing on the rocky red surface detail.</p>
+                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Mars Render')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Jupiter</h4><p>Largest gas giant with procedural storm bands.</p>
+                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Jupiter Render')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Saturn</h4><p>Complex ring system model using shaders.</p>
+                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Saturn Render')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Uranus</h4><p>Ice giant with unique side-rotation tilt.</p>
+                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Uranus Render')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Neptune</h4><p>Deep blue planet with high wind simulation.</p>
+                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Neptune Render')">▶ Play Clip</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard" id="roto">
+    <div class="project-view">
+        <div class="video-container">
+            <iframe id="roto-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="project-info">
+            <h2 id="roto-title">1-Minute Rotoscoping Animation (Final Cut)</h2>
+            <p>A frame-by-frame tracing project developed over 14 weeks. This demonstrates the transition from raw video to a stylized animated narrative. View the progression week by week.</p>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-header"><span>Weekly Evolution</span> <span>🎬</span></div>
+        <div class="scroll-list">
+            <div class="mini-card">
+                <h4>Week 01</h4><p>Learning mask paths and anchor points.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 01: Basics')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 02</h4><p>Refining subject silhouettes.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 02: Silhouettes')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 03</h4><p>Smoother frame-to-frame movement.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 03: Movement')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 04</h4><p>Adding detail to complex movements.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 04: Details')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 05</h4><p>Testing motion blur on masks.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 05: Motion Blur')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 06</h4><p>Applying initial color grading.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 06: Color Grade')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 07</h4><p>Managing layered animations.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 07: Layers')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 08</h4><p>Midway review and jitter cleanup.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 08: Cleanup')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 09</h4><p>Advanced tracking for fast objects.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 09: Tracking')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 10</h4><p>Refining facial and hair details.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 10: Facial Details')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 11</h4><p>Background integration testing.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 11: Backgrounds')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 12</h4><p>Consistent visual style across all frames.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 12: Visual Style')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 13</h4><p>Final assembling and audio sync.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 13: Assembly')">▶ Play Clip</button>
+            </div>
+            <div class="mini-card">
+                <h4>Week 14</h4><p>Final project render and presentation.</p>
+                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 14: Final Render')">▶ Play Clip</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Multimedia & Authoring Project | Designed for the Future</p>
+</footer>
+
+<script>
+    function loadVideo(playerId, youtubeId, titleId, newTitle) {
+        // Find the specific iframe player by its ID
+        const player = document.getElementById(playerId);
+        // Update the source URL to the new YouTube video with autoplay enabled
+        player.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
+        
+        // Update the title text so the user knows what they are watching
+        document.getElementById(titleId).innerText = newTitle;
+    }
+</script>
+
+</body>
+</html>
