@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbital Study • Ralph Snider Ordonez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020617; }
+        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .text-gradient { background: linear-gradient(to right, #818cf8, #e879f9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="text-slate-400 antialiased selection:bg-indigo-500/30 selection:text-indigo-200 relative overflow-x-hidden">
+
+    <!-- Ambient Background -->
+    <div class="fixed top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-[#020617] to-[#020617] pointer-events-none z-0"></div>
+
+    <div class="w-full flex justify-center fixed top-6 z-50 px-4">
+        <header class="glass-panel rounded-full px-6 py-3 flex justify-between items-center w-full max-w-5xl shadow-2xl">
+            <a href="index.html" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Back
+            </a>
+            <div class="text-xs md:text-sm font-medium tracking-wide text-slate-300">
+                Case Study <span class="text-indigo-500/50 mx-2">/</span> 3D Orbital
+            </div>
+        </header>
+    </div>
+
+    <section class="pt-40 pb-16 px-6 max-w-5xl mx-auto text-center relative z-10">
+        <div class="inline-block px-4 py-1.5 rounded-full glass-panel mb-6">
+            <p class="text-xs font-bold tracking-[0.2em] text-indigo-400 uppercase">Project 01</p>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-16 tracking-tight">System <span class="text-gradient">Dynamics.</span></h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-all">
+                <div class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mb-6 text-indigo-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-2">Tools</span>
+                <h3 class="text-xl font-bold text-white mb-3">Software Stack</h3>
+                <p class="text-sm leading-relaxed text-slate-400">Pipeline used Blender for scene building, keyframing, and rendering, with lightweight post-editing.</p>
+            </div>
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-all">
+                <div class="w-10 h-10 rounded-full bg-fuchsia-500/20 flex items-center justify-center mb-6 text-fuchsia-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-2">Design</span>
+                <h3 class="text-xl font-bold text-white mb-3">Visual Objective</h3>
+                <p class="text-sm leading-relaxed text-slate-400">Emphasizes smooth orbital paths, clear focal points, and readable scale relationships between bodies.</p>
+            </div>
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-all">
+                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-2">Build</span>
+                <h3 class="text-xl font-bold text-white mb-3">Key Features</h3>
+                <p class="text-sm leading-relaxed text-slate-400">Final output includes animated camera travel, lighting, and an interactive data calculator below.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 px-6 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-6 relative z-10">
+        
+        <div class="lg:col-span-2 glass-panel rounded-[2rem] p-8 md:p-10 flex flex-col justify-center">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest block mb-4">Development</span>
+            <h3 class="text-3xl font-bold text-white mb-6">Production Basics</h3>
+            <ul class="space-y-4 text-sm text-slate-300">
+                <li class="flex gap-3 items-start"><span class="text-indigo-400 mt-0.5">●</span> Orbital paths were blocked first to lock scene rhythm before camera passes.</li>
+                <li class="flex gap-3 items-start"><span class="text-indigo-400 mt-0.5">●</span> Lighting was tuned for silhouette clarity so each planet remains identifiable.</li>
+                <li class="flex gap-3 items-start"><span class="text-indigo-400 mt-0.5">●</span> Render output was exported at presentation-friendly resolution.</li>
+            </ul>
+        </div>
+
+        <div class="lg:col-span-3 bg-gradient-to-br from-indigo-900/40 to-black/40 border border-indigo-500/20 rounded-[2rem] p-8 md:p-10 relative overflow-hidden backdrop-blur-xl shadow-[0_0_40px_rgba(99,102,241,0.1)]">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-indigo-500/20 blur-[80px] rounded-full pointer-events-none"></div>
+            <span class="text-xs font-bold text-indigo-300 uppercase tracking-widest block mb-4 relative z-10">Interactive Layer</span>
+            <h3 class="text-3xl font-bold text-white mb-4 relative z-10">Planetary Time Calculator</h3>
+            <p class="text-sm mb-8 relative z-10 text-slate-300">This utility converts Earth years into equivalent planetary years. Enter a number below to dynamically update the data grid.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 relative z-10">
+                <input type="number" id="earthYears" value="1" min="0" class="w-full bg-black/50 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-indigo-400 transition-colors shadow-inner" placeholder="Earth Years">
+                <button onclick="calculateYears()" class="bg-indigo-500 text-white px-10 py-4 rounded-2xl font-bold hover:bg-indigo-400 transition-all shadow-[0_0_20px_rgba(99,102,241,0.4)] whitespace-nowrap hover:-translate-y-0.5">Calculate</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 max-w-6xl mx-auto relative z-10">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-3xl font-black text-white tracking-tight">Celestial Data Output</h2>
+            <div class="h-px bg-white/10 flex-grow"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Mercury -->
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-colors flex flex-col group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Mercury</h3>
+                    <div class="space-y-4 text-sm text-slate-300 mb-8">
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Age:</span> <span class="text-white font-medium"><span id="age-mercury">4.1500</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Revolutions:</span> <span class="text-white font-medium" id="rev-mercury">4.1500</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-medium">88 Earth days</span></div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-8">Smallest and fastest planet, with dramatic temperature swings.</p>
+                </div>
+                <button onclick="openVideoModal('uY-rPwjjrd8')" class="relative z-10 w-full py-3 rounded-xl glass-panel text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+            <!-- Venus -->
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-colors flex flex-col group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Venus</h3>
+                    <div class="space-y-4 text-sm text-slate-300 mb-8">
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Age:</span> <span class="text-white font-medium"><span id="age-venus">1.6300</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Revolutions:</span> <span class="text-white font-medium" id="rev-venus">1.6300</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-medium">225 Earth days</span></div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-8">Earth's twin, shaped by a thick atmosphere and extreme heat.</p>
+                </div>
+                <button onclick="openVideoModal('oSiuOap4Fg4')" class="relative z-10 w-full py-3 rounded-xl glass-panel text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+            <!-- Earth -->
+            <div class="bg-gradient-to-br from-blue-900/40 to-black border border-blue-500/30 rounded-[2rem] p-8 shadow-[0_0_30px_rgba(59,130,246,0.15)] flex flex-col relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/20 blur-3xl rounded-full"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Earth</h3>
+                    <div class="space-y-4 text-sm text-blue-100 mb-8">
+                        <div class="flex justify-between border-b border-blue-500/20 pb-3"><span>Age:</span> <span class="text-white font-bold"><span id="age-earth">1.0000</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-blue-500/20 pb-3"><span>Revolutions:</span> <span class="text-white font-bold" id="rev-earth">1.0000</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-bold">365.25 Earth days</span></div>
+                    </div>
+                    <p class="text-xs text-blue-300/70 leading-relaxed mb-8">Our reference planet and the only known world with life.</p>
+                </div>
+                <button onclick="openVideoModal('VsHKkeQCkJ8')" class="relative z-10 w-full py-3 rounded-xl bg-blue-500 hover:bg-blue-400 text-white text-sm font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+            <!-- Mars -->
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-colors flex flex-col group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Mars</h3>
+                    <div class="space-y-4 text-sm text-slate-300 mb-8">
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Age:</span> <span class="text-white font-medium"><span id="age-mars">0.5317</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Revolutions:</span> <span class="text-white font-medium" id="rev-mars">0.5317</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-medium">687 Earth days</span></div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-8">A cold desert planet known for iron-rich terrain.</p>
+                </div>
+                <button onclick="openVideoModal('UKfzgLbBgRc')" class="relative z-10 w-full py-3 rounded-xl glass-panel text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+            <!-- Jupiter -->
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-colors flex flex-col group relative overflow-hidden">
+                 <div class="absolute inset-0 bg-gradient-to-br from-orange-300/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Jupiter</h3>
+                    <div class="space-y-4 text-sm text-slate-300 mb-8">
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Age:</span> <span class="text-white font-medium"><span id="age-jupiter">0.0843</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Revolutions:</span> <span class="text-white font-medium" id="rev-jupiter">0.0843</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-medium">11.86 Earth yrs</span></div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-8">The largest gas giant, defined by immense storms and strong gravity.</p>
+                </div>
+                <button onclick="openVideoModal('YOUR_JUPITER_VIDEO_ID')" class="relative z-10 w-full py-3 rounded-xl glass-panel text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+            <!-- Saturn -->
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-colors flex flex-col group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-200/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Saturn</h3>
+                    <div class="space-y-4 text-sm text-slate-300 mb-8">
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Age:</span> <span class="text-white font-medium"><span id="age-saturn">0.0340</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Revolutions:</span> <span class="text-white font-medium" id="rev-saturn">0.0340</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-medium">29.45 Earth yrs</span></div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-8">A ringed giant known for striking banding and an iconic silhouette.</p>
+                </div>
+                <button onclick="openVideoModal('YOUR_SATURN_VIDEO_ID')" class="relative z-10 w-full py-3 rounded-xl glass-panel text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+            <!-- Uranus -->
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-colors flex flex-col group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Uranus</h3>
+                    <div class="space-y-4 text-sm text-slate-300 mb-8">
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Age:</span> <span class="text-white font-medium"><span id="age-uranus">0.0119</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Revolutions:</span> <span class="text-white font-medium" id="rev-uranus">0.0119</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-medium">84.02 Earth yrs</span></div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-8">An ice giant that rotates on its side, giving it an unusual orbital character.</p>
+                </div>
+                <button onclick="openVideoModal('YOUR_URANUS_VIDEO_ID')" class="relative z-10 w-full py-3 rounded-xl glass-panel text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+            <!-- Neptune -->
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-colors flex flex-col group relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Neptune</h3>
+                    <div class="space-y-4 text-sm text-slate-300 mb-8">
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Age:</span> <span class="text-white font-medium"><span id="age-neptune">0.0061</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Revolutions:</span> <span class="text-white font-medium" id="rev-neptune">0.0061</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-medium">164.79 Earth yrs</span></div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-8">A deep blue giant known for powerful winds and distant orbiting.</p>
+                </div>
+                <button onclick="openVideoModal('YOUR_NEPTUNE_VIDEO_ID')" class="relative z-10 w-full py-3 rounded-xl glass-panel text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+            <!-- Pluto -->
+            <div class="glass-panel rounded-[2rem] p-8 hover:bg-white/[0.05] transition-colors flex flex-col group relative overflow-hidden md:col-span-2 lg:col-span-1">
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex-grow relative z-10">
+                    <h3 class="text-3xl font-bold text-white mb-6">Pluto</h3>
+                    <div class="space-y-4 text-sm text-slate-300 mb-8">
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Age:</span> <span class="text-white font-medium"><span id="age-pluto">0.0040</span> yrs</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-3"><span>Revolutions:</span> <span class="text-white font-medium" id="rev-pluto">0.0040</span></div>
+                        <div class="flex justify-between pb-2"><span>Orbital Period:</span> <span class="text-white font-medium">248 Earth yrs</span></div>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-8">A dwarf planet at the edge of the system, moving slowly through the outer dark.</p>
+                </div>
+                <button onclick="openVideoModal('YOUR_PLUTO_VIDEO_ID')" class="relative z-10 w-full py-3 rounded-xl glass-panel text-sm font-semibold text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-12 mt-10 border-t border-white/5 bg-black/50 backdrop-blur-md text-center px-6 relative z-10">
+        <p class="text-slate-500 text-sm font-medium">
+            Project and contents authored by Ralph Snider Ordonez.
+        </p>
+    </footer>
+
+    <!-- Interactive Video Modal overlay -->
+    <div id="videoModal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-10 opacity-0 transition-opacity duration-300">
+        <div class="relative w-full max-w-5xl aspect-video glass-panel rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8)] scale-95 transition-transform duration-300 p-2" id="modalContent">
+            <!-- Close Button -->
+            <button onclick="closeVideoModal()" class="absolute -top-16 right-0 md:-right-16 md:top-0 z-10 w-12 h-12 glass-panel rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-all shadow-xl hover:rotate-90">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <!-- Iframe Container -->
+            <div class="w-full h-full rounded-2xl overflow-hidden bg-black">
+                <iframe id="videoIframe" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Calculator Logic
+        function calculateYears() {
+            let earthInput = document.getElementById("earthYears").value;
+            let years = parseFloat(earthInput);
+            if(isNaN(years) || years < 0) years = 0;
+
+            const factors = {
+                mercury: 4.15,
+                venus: 1.63,
+                earth: 1.00,
+                mars: 0.5317,
+                jupiter: 0.0843,
+                saturn: 0.0340,
+                uranus: 0.0119,
+                neptune: 0.0061,
+                pluto: 0.0040
+            };
+
+            for (let planet in factors) {
+                let calculated = (years * factors[planet]).toFixed(4);
+                document.getElementById(`age-${planet}`).innerText = calculated;
+                document.getElementById(`rev-${planet}`).innerText = calculated;
+            }
+        }
+
+        // Modal Logic
+        function openVideoModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            const content = document.getElementById('modalContent');
+            
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            const content = document.getElementById('modalContent');
+            
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                iframe.src = ''; // Clear src to stop video audio
+            }, 300);
+        }
+    </script>
+</body>
+</html>

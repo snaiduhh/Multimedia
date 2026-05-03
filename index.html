@@ -1,408 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D Modeling & Rotoscoping Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --bg-main: #09090b;
-        --bg-card: #18181b;
-        --bg-hover: #27272a;
-        --accent: #38bdf8;
-        --accent-glow: rgba(56, 189, 248, 0.4);
-        --text-bright: #fafafa;
-        --text-muted: #a1a1aa;
-        --border-color: #27272a;
-        --yt-red: #ef4444;
-    }
-
-    /* RESET & CORE PROPORTIONS */
-    * { 
-        box-sizing: border-box; 
-        margin: 0; 
-        padding: 0;
-    }
-    
-    html { scroll-behavior: smooth; }
-
-    body {
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-main);
-        color: var(--text-bright);
-        line-height: 1.6;
-    }
-
-    /* GLASS NAV */
-    header {
-        position: fixed;
-        top: 0; width: 100%;
-        height: 70px;
-        background: rgba(9, 9, 11, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 5%;
-        z-index: 1000;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    header .logo { 
-        font-weight: 800; 
-        color: var(--text-bright); 
-        font-size: 1.2rem; 
-        letter-spacing: 1px;
-    }
-    header .logo span { color: var(--accent); }
-
-    header nav a {
-        color: var(--text-muted);
-        text-decoration: none;
-        margin-left: 30px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        transition: 0.3s ease;
-    }
-    header nav a:hover { color: var(--accent); }
-
-    /* HERO SECTION */
-    #home {
-        padding: 160px 5% 80px 5%;
-        max-width: 1400px;
-        margin: 0 auto;
-        text-align: center;
-    }
-    
-    h1 { 
-        font-size: clamp(2.5rem, 5vw, 4rem); 
-        font-weight: 800;
-        line-height: 1.1;
-        margin-bottom: 20px; 
-        background: linear-gradient(to right, #fff, #9ca3af);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
-    .hero-p { 
-        font-size: 1.15rem; 
-        color: var(--text-muted); 
-        max-width: 700px; 
-        margin: 0 auto; 
-    }
-
-    /* PROJECT DASHBOARD PROPORTIONS */
-    .dashboard {
-        display: grid;
-        grid-template-columns: 1fr 380px; 
-        gap: 30px;
-        max-width: 1400px;
-        margin: 0 auto 120px auto;
-        padding: 0 5%;
-        align-items: start; 
-    }
-
-    /* LEFT SIDE: MAIN PROJECT VIEW */
-    .project-view {
-        background: var(--bg-card);
-        border-radius: 16px;
-        padding: 20px;
-        border: 1px solid var(--border-color);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    
-    .video-container {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        border-radius: 10px;
-        overflow: hidden;
-        background: #000;
-        box-shadow: 0 0 20px rgba(0,0,0,0.8) inset;
-    }
-    
-    iframe { width: 100%; height: 100%; border: none; }
-    
-    .project-info { margin-top: 25px; padding: 0 10px; }
-    .project-info h2 { font-size: 1.8rem; margin-bottom: 10px; font-weight: 800; }
-    .project-info p { color: var(--text-muted); font-size: 1rem; }
-
-    /* RIGHT SIDE: INTERACTIVE SIDEBAR */
-    .sidebar {
-        height: calc(100vh - 140px);
-        max-height: 800px;
-        background: var(--bg-card);
-        border-radius: 16px;
-        border: 1px solid var(--border-color);
-        display: flex;
-        flex-direction: column;
-        position: sticky;
-        top: 90px;
-    }
-    
-    .sidebar-header {
-        padding: 20px;
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 1.5px;
-        border-bottom: 1px solid var(--border-color);
-        color: var(--accent);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .scroll-list {
-        overflow-y: auto;
-        padding: 15px;
-        flex-grow: 1;
-    }
-
-    /* MODERN MINI CARDS */
-    .mini-card {
-        background: var(--bg-main);
-        border-radius: 10px;
-        padding: 16px;
-        margin-bottom: 12px;
-        border: 1px solid var(--border-color);
-        transition: all 0.2s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .mini-card:hover { 
-        border-color: var(--accent); 
-        background: var(--bg-hover); 
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    
-    /* Validator Fix: Changed h4 to h3 */
-    .mini-card h3 { margin-bottom: 6px; font-size: 1rem; font-weight: 600; color: var(--text-bright); }
-    .mini-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
-    
-    /* YOUTUBE BUTTON STYLING */
-    .btn-yt {
-        background: rgba(239, 68, 68, 0.1);
-        color: var(--yt-red);
-        border: 1px solid rgba(239, 68, 68, 0.3);
-        padding: 8px 16px;
-        font-size: 0.75rem;
-        font-weight: 800;
-        border-radius: 6px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        cursor: pointer;
-        transition: 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    
-    .btn-yt:hover {
-        background: var(--yt-red);
-        color: #fff;
-        box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
-    }
-
-    /* FOOTER */
-    footer { 
-        text-align: center; 
-        padding: 40px; 
-        color: var(--text-muted); 
-        border-top: 1px solid var(--border-color); 
-        font-size: 0.9rem;
-    }
-
-    /* CUSTOM SCROLLBAR FOR SLEEK LOOK */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #52525b; }
-
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 1024px) {
-        .dashboard { grid-template-columns: 1fr; }
-        .sidebar { height: 500px; position: static; }
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio • Ralph Snider Ordonez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020617; }
+        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .text-gradient { background: linear-gradient(to right, #818cf8, #e879f9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
 </head>
-<body>
+<body class="text-slate-400 antialiased selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden relative min-h-screen">
 
-<!-- Validator Fix: Removed the double angle bracket <<header> -->
-<header>
-    <div class="logo">RALPH SNIDER ORDONEZ <span>| BSIT-NS-2A</span></div>
-    <nav>
-        <a href="#home">HOME</a>
-        <a href="#solar">3D_SOLAR</a>
-        <a href="#roto">VFX_ROTO</a>
-    </nav>
-</header>
+    <!-- Ambient Background Glows -->
+    <div class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-900/20 blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-fuchsia-900/10 blur-[120px] pointer-events-none z-0"></div>
 
-<section id="home">
-    <h1>Multimedia & Authoring</h1>
-    <p class="hero-p">
-        Exploring the art of rotoscoping and the realism of 3D rendering to create compelling visual narratives. 
-        Merging creativity with technology to bring motion and dimension to digital storytelling.
-    </p>
-</section>
-
-<div class="dashboard" id="solar">
-    <div class="project-view">
-        <div class="video-container">
-            <!-- Validator Fix: Added "about:blank" to empty src -->
-            <iframe id="solar-player" src="about:blank" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="project-info">
-            <h2 id="solar-title">3D Solar System Project (Full Overview)</h2>
-            <p>A procedural 3D model of the solar system built in Blender. This project focuses on realistic planetary motion and surface textures to simulate space environments. Select a planet from the directory to view its specific render.</p>
-        </div>
+    <!-- Floating Pill Header -->
+    <div class="w-full flex justify-center fixed top-6 z-50 px-4">
+        <header class="glass-panel rounded-full px-6 py-3 flex justify-between items-center w-full max-w-5xl shadow-2xl">
+            <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_12px_rgba(99,102,241,0.8)] animate-pulse"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-100">Hub</span>
+            </div>
+            <div class="text-xs md:text-sm font-medium tracking-wide text-slate-300">
+                Ralph Snider Ordonez <span class="text-indigo-500/50 mx-2">/</span> BSIT-NS-2A
+            </div>
+        </header>
     </div>
 
-    <div class="sidebar">
-        <div class="sidebar-header"><span>Planet Directory</span> <span>🌌</span></div>
-        <div class="scroll-list">
-            <!-- Validator Fix: Changed h4 to h3 in all mini-cards -->
-            <div class="mini-card">
-                <h3>Mercury</h3><p>Closest planet to the sun. Heavy cratering.</p>
-                <button class="btn-yt" onclick="loadVideo('solar-player', 'ov76dxroz3A', 'solar-title', 'Mercury Render')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Venus</h3><p>Dense atmosphere and high heat rendering.</p>
-                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Venus Render')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Earth</h3><p>Multi-layered textures for clouds and water.</p>
-                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Earth Render')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Mars</h3><p>Focusing on the rocky red surface detail.</p>
-                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Mars Render')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Jupiter</h3><p>Largest gas giant with procedural storm bands.</p>
-                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Jupiter Render')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Saturn</h3><p>Complex ring system model using shaders.</p>
-                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Saturn Render')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Uranus</h3><p>Ice giant with unique side-rotation tilt.</p>
-                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Uranus Render')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Neptune</h3><p>Deep blue planet with high wind simulation.</p>
-                <button class="btn-yt" onclick="loadVideo('solar-player', 'YOUTUBE_ID_HERE', 'solar-title', 'Neptune Render')">▶ Play Clip</button>
-            </div>
+    <!-- Centered Hero Structure -->
+    <section class="pt-48 pb-20 px-6 max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center">
+        <div class="inline-block px-4 py-1.5 rounded-full glass-panel mb-6">
+            <p class="text-xs font-bold tracking-[0.2em] text-indigo-400 uppercase">Multimedia & Authoring</p>
         </div>
-    </div>
-</div>
+        <h1 class="text-6xl md:text-8xl font-extrabold text-white leading-tight tracking-tight mb-8">
+            Digital <span class="text-gradient">Motion.</span>
+        </h1>
+        <p class="text-slate-400 max-w-2xl text-lg leading-relaxed mb-12">
+            A showcase of technical workflows in 3D visualization and frame-by-frame rotoscoping. Documented and authored by Ralph Snider Ordonez.
+        </p>
+    </section>
 
-<div class="dashboard" id="roto">
-    <div class="project-view">
-        <div class="video-container">
-            <iframe id="roto-player" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="project-info">
-            <h2 id="roto-title">1-Minute Rotoscoping Animation (Final Cut)</h2>
-            <p>A frame-by-frame tracing project developed over 14 weeks. This demonstrates the transition from raw video to a stylized animated narrative. View the progression week by week.</p>
+    <!-- Bento Box Grid Structure -->
+    <section class="pb-24 px-6 max-w-6xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
-            <!-- NEW FEATURE: TEACHER REFERENCE SECTION -->
-            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color);">
-                <h3 style="font-size: 0.95rem; color: var(--text-bright); margin-bottom: 10px;">📋 Teacher's Reference:</h3>
-                <!-- Replace 'YOUR_ORIGINAL_VIDEO_ID' with the YouTube ID of the raw footage -->
-                <button class="btn-yt" style="background: rgba(56, 189, 248, 0.1); color: var(--accent); border-color: var(--accent);" onclick="loadVideo('roto-player', '02RrwnCjEfs', 'roto-title', 'Original Raw Video Reference')">
-                    ▶ Watch Original Raw Footage
-                </button>
-            </div>
+            <!-- Project 1 Card -->
+            <a href="orbital.html" class="block group relative rounded-[2rem] overflow-hidden glass-panel hover:bg-white/[0.05] transition-all duration-500 shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1">
+                <div class="p-8 md:p-10 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-10">
+                        <span class="text-xs font-bold tracking-[0.2em] text-slate-500 uppercase group-hover:text-indigo-400 transition-colors">Project 01</span>
+                        <div class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-slate-300 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-3xl font-bold text-white mb-4 tracking-tight">Orbital Motion Study</h2>
+                    <p class="text-sm leading-relaxed mb-8 flex-grow text-slate-400">A cinematic project focused on 3D motion, scene presentation, and an integrated interactive planetary calculator.</p>
+                    
+                    <div class="w-full aspect-video bg-black/50 rounded-2xl border border-white/5 relative overflow-hidden mb-6">
+                        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-xs text-slate-600 font-medium">3D Project Preview</div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <span class="px-4 py-1.5 bg-black/40 rounded-full text-xs font-medium text-slate-300 backdrop-blur-sm border border-white/5">3D Rendering</span>
+                        <span class="px-4 py-1.5 bg-black/40 rounded-full text-xs font-medium text-slate-300 backdrop-blur-sm border border-white/5">Blender</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Project 2 Card -->
+            <a href="rotoscope.html" class="block group relative rounded-[2rem] overflow-hidden glass-panel hover:bg-white/[0.05] transition-all duration-500 shadow-xl hover:shadow-fuchsia-500/10 hover:-translate-y-1">
+                <div class="p-8 md:p-10 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-10">
+                        <span class="text-xs font-bold tracking-[0.2em] text-slate-500 uppercase group-hover:text-fuchsia-400 transition-colors">Project 02</span>
+                        <div class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-slate-300 group-hover:bg-fuchsia-500 group-hover:text-white transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-3xl font-bold text-white mb-4 tracking-tight">Rotoscope Case Study</h2>
+                    <p class="text-sm leading-relaxed mb-8 flex-grow text-slate-400">A 60-second stylized study of traced movement, isolation techniques, and complete weekly documentation.</p>
+                    
+                    <div class="w-full aspect-video bg-black/50 rounded-2xl border border-white/5 relative overflow-hidden mb-6">
+                        <div class="absolute inset-0 bg-gradient-to-t from-fuchsia-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-xs text-slate-600 font-medium">Rotoscope Preview</div>
+                    </div>
+
+                    <div class="flex gap-2 flex-wrap items-center">
+                        <span class="px-4 py-1.5 bg-black/40 rounded-full text-xs font-medium text-slate-300 backdrop-blur-sm border border-white/5">After Effects</span>
+                        <span class="px-4 py-1.5 bg-black/40 rounded-full text-xs font-medium text-slate-300 backdrop-blur-sm border border-white/5">Video Editing</span>
+                        
+                        <!-- Added Reference Video Link -->
+                        <object><a href="https://www.youtube.com/watch?v=xW2yArNI_5A&list=RDxW2yArNI_5A&start_radio=1" target="_blank" class="px-4 py-1.5 bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-300 hover:bg-fuchsia-500 hover:text-white transition-colors text-xs font-semibold rounded-full ml-auto">
+                            Reference Video ↗
+                        </a></object>
+                    </div>
+                </div>
+            </a>
+
         </div>
-    </div>
-
-    <div class="sidebar">
-        <div class="sidebar-header"><span>Weekly Evolution</span> <span>🎬</span></div>
-        <div class="scroll-list">
-            <!-- Validator Fix: Changed h4 to h3 in all mini-cards -->
-            <div class="mini-card">
-                <h3>Week 01</h3><p>Learning mask paths and anchor points.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', '4k5GMhq-irg', 'roto-title', 'Week 01: Basics')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 02</h3><p>Refining subject silhouettes.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 02: Silhouettes')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 03</h3><p>Smoother frame-to-frame movement.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 03: Movement')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 04</h3><p>Adding detail to complex movements.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 04: Details')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 05</h3><p>Testing motion blur on masks.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 05: Motion Blur')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 06</h3><p>Applying initial color grading.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 06: Color Grade')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 07</h3><p>Managing layered animations.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 07: Layers')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 08</h3><p>Midway review and jitter cleanup.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 08: Cleanup')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 09</h3><p>Advanced tracking for fast objects.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 09: Tracking')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 10</h3><p>Refining facial and hair details.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 10: Facial Details')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 11</h3><p>Background integration testing.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 11: Backgrounds')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 12</h3><p>Consistent visual style across all frames.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 12: Visual Style')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 13</h3><p>Final assembling and audio sync.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 13: Assembly')">▶ Play Clip</button>
-            </div>
-            <div class="mini-card">
-                <h3>Week 14</h3><p>Final project render and presentation.</p>
-                <button class="btn-yt" onclick="loadVideo('roto-player', 'YOUTUBE_ID_HERE', 'roto-title', 'Week 14: Final Render')">▶ Play Clip</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 Multimedia & Authoring Project | Designed for the Future</p>
-</footer>
-
-<script>
-    function loadVideo(playerId, youtubeId, titleId, newTitle) {
-        // Find the specific iframe player by its ID
-        const player = document.getElementById(playerId);
-        // Update the source URL to the new YouTube video with autoplay enabled
-        player.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
-        
-        // Update the title text so the user knows what they are watching
-        document.getElementById(titleId).innerText = newTitle;
-    }
-</script>
+    </section>
 
 </body>
 </html>
